@@ -82,7 +82,7 @@ function StatsCards(props: StatsCardProps){
               title="Bounce rate"
               icon={<TbArrowBounce className="text-red-600" />}
               helperText="Visits that leave without interacting"
-              value={data?.submissionRate.toLocaleString() + "%" || ""}
+              value={data?.bounceRate.toLocaleString() + "%" || ""}
               loading={loading}
               className="shadow-md shadow-red-600"
             />
@@ -90,7 +90,7 @@ function StatsCards(props: StatsCardProps){
   );
 }
 
-function StatsCard({
+export function StatsCard({
   title,
   icon,
   helperText,
@@ -105,7 +105,7 @@ function StatsCard({
   loading: boolean;
   icon: ReactNode;
 }) {
-  return <Card>
+  return <Card className={className}>
     <CardHeader className="flex flex-row items-center justify-between pb-2">
       <CardTitle className="text-sm font-medium text-muted-foreground">{title}</CardTitle>
       {icon}
