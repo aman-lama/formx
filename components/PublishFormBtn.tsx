@@ -12,7 +12,7 @@ import {
   AlertDialogTrigger
 } from './ui/alert-dialog';
 import { AlertDialogDescription } from '@radix-ui/react-alert-dialog';
-import { FaIcons } from 'react-icons/fa';
+import { FaIcons, FaSpinner } from 'react-icons/fa';
 import { toast } from './ui/use-toast';
 import { PublishForm } from '@/actions/form';
 import { useRouter } from 'next/navigation';
@@ -54,7 +54,7 @@ function PublishFormBtn({id} : {id: number}) {
           <AlertDialogAction disabled={loading} onClick={e => {
             e.preventDefault();
             startTransition(publishForm);
-          }}>Proceed {loading && <FaIcons className='animate-spin'/>}</AlertDialogAction>
+          }}>Proceed {loading && <FaSpinner className='animate-spin'/>}</AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>

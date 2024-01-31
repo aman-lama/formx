@@ -17,6 +17,7 @@ import {
     FormMessage
 } from "../ui/form";
 import { LuHeading1, LuSeparatorHorizontal } from "react-icons/lu";
+import { Slider } from "../ui/slider";
 
 const type: ElementsType = "SpacerField";
 
@@ -90,9 +91,17 @@ function PropertiesComponent({
                 name="height"
                 render={({field}) => (
                     <FormItem>
-                        <FormLabel>Title</FormLabel>
+                        <FormLabel>Height (px): {form.watch("height")}</FormLabel>
                         <FormControl>
-                            
+                            <Slider 
+                                defaultValue={[field.value]}
+                                min={5}
+                                max={200}
+                                step={1}
+                                onValueChange={(value) =>{
+                                    field.onChange(value[0]);
+                                }}
+                            />
                         </FormControl>
                         <FormMessage />
                     </FormItem>
